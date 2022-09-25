@@ -1,6 +1,9 @@
 const myCanvas = {
   ui: {
-    canvas: document.querySelector('#canvas')
+    canvas: document.querySelector('#canvas'),
+    bigPen: document.querySelector('#big-pen'),
+    normalPen: document.querySelector('#normal-pen'),
+    smallPen: document.querySelector('#small-pen')
   },
   ctx: undefined,
   painting: false,
@@ -47,18 +50,18 @@ const myCanvas = {
     }
   },
 
-  drawLine: (x1, y1, x2, y2)=>{
+  drawLine: (x1, y1, x2, y2) => {
     myCanvas.ctx.beginPath()
     myCanvas.ctx.moveTo(x1, y1)
     myCanvas.ctx.lineTo(x2, y2)
     myCanvas.ctx.stroke()
   },
 
-  setPenColor:(color = 'black')=>{
+  setPenColor: (color = 'black') => {
     myCanvas.ctx.strokeStyle = color
   },
 
-  setPenSize: (size= 10)=>{
+  setPenSize: (size = 10) => {
     myCanvas.ctx.lineWidth = size
   }
 }
