@@ -7,13 +7,16 @@ const myCanvas = {
   painting: false,
   last: undefined,
   events: {
-    '#big-pen': ['setPenSize', 20],
-    '#normal-pen': ['setPenSize', 10],
-    '#small-pen': ['setPenSize', 5],
-    '#red-pen': ['setPenColor', 'red'],
-    '#blue-pen': ['setPenColor', 'blue'],
-    '#green-pen': ['setPenColor', 'green'],
-    '#black-pen': ['setPenColor', 'black'],
+    '.big-pen': ['setPenSize', 20],
+    '.normal-pen': ['setPenSize', 10],
+    '.small-pen': ['setPenSize', 5],
+    '.red-pen': ['setPenColor', 'red'],
+    '.blue-pen': ['setPenColor', 'blue'],
+    '.green-pen': ['setPenColor', 'green'],
+    '.black-pen': ['setPenColor', 'black'],
+    '.pen': ['setPen', undefined],
+    '.eraser': ['setEraser', undefined],
+    '.clean': ['cleanCanvas', undefined]
   },
 
   init: () => {
@@ -24,8 +27,7 @@ const myCanvas = {
 
     myCanvas.bindEvent()
 
-    myCanvas.setPenSize()
-    myCanvas.setPenColor()
+    myCanvas.setPen()
 
     if (!matchMedia('(pointer:fine)').matches) {
       myCanvas.ui.canvas.ontouchstart = (e) => {
@@ -57,11 +59,11 @@ const myCanvas = {
     }
   },
 
-  bindEvent: ()=>{
-    for(let key in myCanvas.events){
-      if(myCanvas.events.hasOwnProperty(key)){
+  bindEvent: () => {
+    for (let key in myCanvas.events) {
+      if (myCanvas.events.hasOwnProperty(key)) {
         const fn = myCanvas[myCanvas.events[key][0]]
-        document.querySelector(key).onclick = ()=>{
+        document.querySelector(key).onclick = () => {
           fn(myCanvas.events[key][1])
         }
       }
@@ -81,6 +83,20 @@ const myCanvas = {
 
   setPenSize: (size = 10) => {
     myCanvas.ctx.lineWidth = size
+  },
+
+  setPen: () => {
+    myCanvas.setPenColor()
+    myCanvas.setPenSize()
+  },
+
+  setEraser: () => {
+    myCanvas.setPenColor('white')
+    myCanvas.setPenSize()
+  },
+
+  cleanCanvas: ()=>{
+    myCanvas.ctx.clearRect(0,0,myCanvas.ui.canvas.width,myCanvas.ui.canvas.height);
   }
 }
 
