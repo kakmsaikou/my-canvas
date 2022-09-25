@@ -2,12 +2,19 @@ const myCanvas = {
   ui: {
     canvas: document.querySelector('#canvas'),
     bigPen: document.querySelector('#big-pen'),
-    normalPen: document.querySelector('#normal-pen'),
-    smallPen: document.querySelector('#small-pen')
   },
   ctx: undefined,
   painting: false,
   last: undefined,
+  events: {
+    '#big-pen': ['setPenSize', 20],
+    '#normal-pen': ['setPenSize', 10],
+    '#small-pen': ['setPenSize', 5],
+    '#red-pen': ['setPenColor', 'red'],
+    '#blue-pen': ['setPenColor', 'blue'],
+    '#green-pen': ['setPenColor', 'green'],
+    '#black-pen': ['setPenColor', 'black'],
+  },
 
   init: () => {
     myCanvas.ctx = myCanvas.ui.canvas.getContext('2d')
@@ -15,8 +22,10 @@ const myCanvas = {
     myCanvas.ui.canvas.height = document.documentElement.clientHeight
     myCanvas.ctx.lineCap = 'round'
 
+    myCanvas.bindEvent()
+
     myCanvas.setPenSize()
-    myCanvas.setPenColor('blue')
+    myCanvas.setPenColor()
 
     if (!matchMedia('(pointer:fine)').matches) {
       myCanvas.ui.canvas.ontouchstart = (e) => {
@@ -36,15 +45,24 @@ const myCanvas = {
         myCanvas.painting = true
         myCanvas.last = [e.clientX, e.clientY]
       }
-
       myCanvas.ui.canvas.onmouseup = () => {
         myCanvas.painting = false
       }
-
       myCanvas.ui.canvas.onmousemove = (e) => {
         if (myCanvas.painting) {
           myCanvas.drawLine(myCanvas.last[0], myCanvas.last[1], e.clientX, e.clientY)
           myCanvas.last = [e.clientX, e.clientY]
+        }
+      }
+    }
+  },
+
+  bindEvent: ()=>{
+    for(let key in myCanvas.events){
+      if(myCanvas.events.hasOwnProperty(key)){
+        const fn = myCanvas[myCanvas.events[key][0]]
+        document.querySelector(key).onclick = ()=>{
+          fn(myCanvas.events[key][1])
         }
       }
     }
@@ -67,7 +85,3 @@ const myCanvas = {
 }
 
 myCanvas.init()
-
-// const bigPen = document.querySelector('#big-pen')
-// const normalPen = document.querySelector('#normal-pen')
-// const smallPen = document.querySelector('#small-pen')
