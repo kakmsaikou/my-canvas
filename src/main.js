@@ -1,5 +1,5 @@
 // 获取canvas对象
-let canvas = document.getElementById('canvas')
+const canvas = document.getElementById('canvas')
 
 // 获取用户文档（document）的宽高，设置canvas的宽高
 canvas.width = document.documentElement.clientWidth
@@ -65,4 +65,17 @@ if (!matchMedia('(pointer:fine)').matches) {
       last = [e.clientX, e.clientY]
     }
   }
+}
+
+const bigPen = document.querySelector('#big-pen')
+const normalPen = document.querySelector('#normal-pen')
+const smallPen = document.querySelector('#small-pen')
+bigPen.onclick = () => {
+  ctx.lineWidth = 20
+}
+normalPen.onclick = () => {
+  ctx.lineWidth = 10
+}
+smallPen.onclick = ()=>{
+  ctx.lineWidth = 5
 }
