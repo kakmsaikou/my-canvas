@@ -9,6 +9,10 @@
   display: block;
 }
 
-.buttons{
+.buttons {
   position: absolute;
+}
+
+button {
+  cursor: pointer;
 }
