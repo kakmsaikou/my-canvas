@@ -97,6 +97,8 @@ const myCanvas = {
 
   cleanCanvas: ()=>{
     myCanvas.ctx.clearRect(0,0,myCanvas.ui.canvas.width,myCanvas.ui.canvas.height);
+    myCanvas.setPenColor()
+    myCanvas.setPenSize()
   }
 }
 
