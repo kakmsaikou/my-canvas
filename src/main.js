@@ -7,7 +7,7 @@ const myCanvas = {
   painting: false,
   last: undefined,
   events: {
-    '.big-pen': ['setPenSize', 20],
+    '.big-pen': ['setPenSize', 15],
     '.normal-pen': ['setPenSize', 10],
     '.small-pen': ['setPenSize', 5],
     '.red-pen': ['setPenColor', '#ed1c24'],
