@@ -16,3 +16,76 @@
 button {
   cursor: pointer;
 }
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.others button {
+  background-color: transparent;
+  border: none;
+}
+
+.others button svg {
+  width: 30px;
+  height: 30px;
+  color: #666;
+}
+
+.pen-color {
+  display: flex;
+  flex-direction: column;
+}
+
+.pen-color button {
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.red-pen {
+  background-color: #ed1c24;
+}
+
+.blue-pen {
+  background-color: #00a2e8;
+}
+
+.green-pen {
+  background-color: #22b14c;
+}
+
+.black-pen {
+  background-color: black;
+}
+
+.pen-size {
+  display: flex;
+  flex-direction: column;
+}
+
+.pen-size button{
+  background-color: black;
+  border: none;
+  width: 30px;
+  margin-bottom: 10px;
+
+}
+
+.big-pen {
+  border: 1px solid red;
+  height: 20px;
+}
+
+.normal-pen {
+  height: 10px;
+}
+
+.small-pen {
+  height: 5px;
+}

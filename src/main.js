@@ -1,3 +1,5 @@
+import ('./iconfont.js')
+
 const myCanvas = {
   ui: {
     canvas: document.querySelector('#canvas'),
@@ -95,8 +97,8 @@ const myCanvas = {
     myCanvas.setPenSize()
   },
 
-  cleanCanvas: ()=>{
-    myCanvas.ctx.clearRect(0,0,myCanvas.ui.canvas.width,myCanvas.ui.canvas.height);
+  cleanCanvas: () => {
+    myCanvas.ctx.clearRect(0, 0, myCanvas.ui.canvas.width, myCanvas.ui.canvas.height)
     myCanvas.setPenColor()
     myCanvas.setPenSize()
   }

@@ -10,21 +10,33 @@
 </head>
 <body>
   <div class="buttons">
-    <div class="pen-size">
-      <button class="big-pen">大号</button>
-      <button class="normal-pen">中号</button>
-      <button class="small-pen">小号</button>
+    <div class="others">
+      <button class="pen">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-pen"></use>
+        </svg>
+      </button>
+      <button class="eraser">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-eraser"></use>
+        </svg>
+      </button>
+      <button class="clean">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-clean"></use>
+        </svg>
+      </button>
     </div>
     <div class="pen-color">
-      <button class="red-pen">红色</button>
-      <button class="blue-pen">蓝色</button>
-      <button class="green-pen">绿色</button>
-      <button class="black-pen">黑色</button>
+      <button class="red-pen"></button>
+      <button class="blue-pen"></button>
+      <button class="green-pen"></button>
+      <button class="black-pen"></button>
     </div>
-    <div class="others">
-      <button class="pen">画笔</button>
-      <button class="eraser">橡皮擦</button>
-      <button class="clean">清空</button>
+    <div class="pen-size">
+      <button class="small-pen">小号</button>
+      <button class="normal-pen">中号</button>
+      <button class="big-pen">大号</button>
     </div>
   </div>
   <canvas id="canvas"></canvas>
