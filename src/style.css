@@ -9,10 +9,6 @@
   display: block;
 }
 
-.buttons {
-  position: absolute;
-}
-
 button {
   cursor: pointer;
 }
@@ -25,7 +21,15 @@ button {
   overflow: hidden;
 }
 
+.others {
+  display: flex;
+  position: absolute;
+  top: 16px;
+  left: 18px;
+}
+
 .others button {
+  margin-right: 16px;
   background-color: transparent;
   border: none;
 }
@@ -39,6 +43,9 @@ button {
 .pen-color {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 72px;
+  left: 16px;
 }
 
 .pen-color button {
@@ -46,6 +53,7 @@ button {
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  margin-bottom: 16px;
 }
 
 .red-pen {
@@ -67,13 +75,16 @@ button {
 .pen-size {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 
 .pen-size button{
   background-color: black;
   border: none;
   width: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 
 }
 
