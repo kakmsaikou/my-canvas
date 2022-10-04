@@ -3,15 +3,62 @@
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
+  cursor: none;
+}
+
+#mouse {
+  background-color: purple;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#mouse.red{
+  background-color: #ed1c24;
+}
+
+#mouse.blue{
+  background-color: #00a2e8;
+}
+
+#mouse.green {
+  background-color: #22b14c;
+}
+
+#mouse.black{
+  background-color: #000;
+}
+
+#mouse.white{
+  background-color: #fff;
+  border: 2px solid black;
+}
+
+#mouse.small{
+  width: 10px;
+  height: 10px;
+}
+
+#mouse.normal{
+  width: 15px;
+  height: 15px;
+}
+
+#mouse.big{
+  width: 20px;
+  height: 20px;
 }
 
 #canvas {
   display: block;
 }
 
-button {
-  cursor: pointer;
-}
+/*button {*/
+/*  cursor: pointer;*/
+/*}*/
 
 .icon {
   width: 1em;
@@ -62,7 +109,7 @@ button {
   transition: transform 100ms;
 }
 
-.pen-color button.selected{
+.pen-color button.selected {
   transform: scale(1.2, 1.2);
 }
 
@@ -82,7 +129,7 @@ button {
 }
 
 .black-pen {
-  background-color: black;
+  background-color: #000;
   top: 144px;
 }
 
@@ -106,9 +153,9 @@ button {
 }
 
 .normal-pen {
-  height: 10px;
+  height: 15px;
 }
 
 .small-pen {
-  height: 5px;
+  height: 10px;
 }

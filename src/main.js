@@ -1,5 +1,15 @@
 import ('./iconfont.js')
 
+const mouse = document.querySelector('#mouse')
+window.addEventListener('mousemove', function (event) {
+  mouse.style.left = event.clientX - mouse.offsetWidth / 2 + 'px'
+  mouse.style.top = event.clientY - mouse.offsetHeight / 2 + 'px'
+})
+
+function removeMouseClass(className) {
+  if (mouse.classList.contains(className)) {mouse.classList.remove(className)}
+}
+
 const myCanvas = {
   ui: {
     canvas: document.querySelector('#canvas'),
@@ -27,9 +37,9 @@ const myCanvas = {
     'blue': '#00a2e8',
     'green': '#22b14c',
     'white': '#fff',
-    'big': 15,
-    'normal': 10,
-    'small': 5
+    'big': 20,
+    'normal': 15,
+    'small': 10
   },
 
   init: () => {
@@ -91,6 +101,11 @@ const myCanvas = {
   },
 
   setPenColor: (color = 'black') => {
+    removeMouseClass('red')
+    removeMouseClass('blue')
+    removeMouseClass('green')
+    removeMouseClass('white')
+    mouse.classList.add(color)
     const colors = Array.from(myCanvas.ui.colors)
     const selectedColor = color + '-pen'
     myCanvas.selectStyle(colors, selectedColor)
@@ -98,6 +113,10 @@ const myCanvas = {
   },
 
   setPenSize: (size = 'normal') => {
+    removeMouseClass('big')
+    removeMouseClass('normal')
+    removeMouseClass('small')
+    mouse.classList.add(size)
     myCanvas.ctx.lineWidth = myCanvas.styleList[size]
   },
 
