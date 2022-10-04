@@ -3,6 +3,7 @@ import ('./iconfont.js')
 const myCanvas = {
   ui: {
     canvas: document.querySelector('#canvas'),
+    colors: document.querySelector('.pen-color').children
   },
   ctx: undefined,
   painting: false,
@@ -89,6 +90,16 @@ const myCanvas = {
   },
 
   setPenColor: (color = 'black') => {
+    const colors = Array.from(myCanvas.ui.colors)
+    const selectedColor = color + '-pen'
+    colors.map(c => {
+      if (c.classList.contains('selected')) {
+        c.classList.remove('selected')
+      }
+      if (c.classList.contains(selectedColor)) {
+        c.classList.add('selected')
+      }
+    })
     myCanvas.ctx.strokeStyle = myCanvas.styleList[color]
   },
 
