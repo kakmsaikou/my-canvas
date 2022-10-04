@@ -3,15 +3,14 @@ import ('./iconfont.js')
 const myCanvas = {
   ui: {
     canvas: document.querySelector('#canvas'),
-    bigPen: document.querySelector('#big-pen'),
   },
   ctx: undefined,
   painting: false,
   last: undefined,
   events: {
-    '.big-pen': ['setPenSize', 15],
-    '.normal-pen': ['setPenSize', 10],
-    '.small-pen': ['setPenSize', 5],
+    '.big-pen': ['setPenSize', 'big'],
+    '.normal-pen': ['setPenSize', 'normal'],
+    '.small-pen': ['setPenSize', 'small'],
     '.red-pen': ['setPenColor', 'red'],
     '.blue-pen': ['setPenColor', 'blue'],
     '.green-pen': ['setPenColor', 'green'],
@@ -25,7 +24,10 @@ const myCanvas = {
     'red': '#ed1c24',
     'blue': '#00a2e8',
     'green': '#22b14c',
-    'white': '#fff'
+    'white': '#fff',
+    'big': 15,
+    'normal': 10,
+    'small': 5
   },
 
   init: () => {
@@ -90,8 +92,8 @@ const myCanvas = {
     myCanvas.ctx.strokeStyle = myCanvas.styleList[color]
   },
 
-  setPenSize: (size = 10) => {
-    myCanvas.ctx.lineWidth = size
+  setPenSize: (size = 'normal') => {
+    myCanvas.ctx.lineWidth = myCanvas.styleList[size]
   },
 
   setPen: () => {
