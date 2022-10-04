@@ -93,14 +93,7 @@ const myCanvas = {
   setPenColor: (color = 'black') => {
     const colors = Array.from(myCanvas.ui.colors)
     const selectedColor = color + '-pen'
-    colors.map(c => {
-      if (c.classList.contains('selected')) {
-        c.classList.remove('selected')
-      }
-      if (c.classList.contains(selectedColor)) {
-        c.classList.add('selected')
-      }
-    })
+    myCanvas.selectStyle(colors, selectedColor)
     myCanvas.ctx.strokeStyle = myCanvas.styleList[color]
   },
 
@@ -109,29 +102,15 @@ const myCanvas = {
   },
 
   setPen: () => {
-    const others= Array.from(myCanvas.ui.others)
-    others.map(i => {
-      if (i.classList.contains('selected')) {
-        i.classList.remove('selected')
-      }
-      if (i.classList.contains('pen')) {
-        i.classList.add('selected')
-      }
-    })
+    const others = Array.from(myCanvas.ui.others)
+    myCanvas.selectStyle(others, 'pen')
     myCanvas.setPenColor()
     myCanvas.setPenSize()
   },
 
   setEraser: () => {
-    const others= Array.from(myCanvas.ui.others)
-    others.map(i => {
-      if (i.classList.contains('selected')) {
-        i.classList.remove('selected')
-      }
-      if (i.classList.contains('eraser')) {
-        i.classList.add('selected')
-      }
-    })
+    const others = Array.from(myCanvas.ui.others)
+    myCanvas.selectStyle(others, 'eraser')
     myCanvas.setPenColor('white')
     myCanvas.setPenSize()
   },
@@ -140,6 +119,17 @@ const myCanvas = {
     myCanvas.ctx.clearRect(0, 0, myCanvas.ui.canvas.width, myCanvas.ui.canvas.height)
     myCanvas.setPenColor()
     myCanvas.setPenSize()
+  },
+
+  selectStyle: (arr, targetClass) => {
+    arr.map(i => {
+      if (i.classList.contains('selected')) {
+        i.classList.remove('selected')
+      }
+      if (i.classList.contains(targetClass)) {
+        i.classList.add('selected')
+      }
+    })
   }
 }
 
