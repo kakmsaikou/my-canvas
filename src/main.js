@@ -105,6 +105,7 @@ const myCanvas = {
     removeMouseClass('blue')
     removeMouseClass('green')
     removeMouseClass('white')
+    removeMouseClass('black')
     mouse.classList.add(color)
     const colors = Array.from(myCanvas.ui.colors)
     const selectedColor = color + '-pen'
