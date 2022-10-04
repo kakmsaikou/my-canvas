@@ -35,9 +35,13 @@ button {
 }
 
 .others button svg {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   color: #666;
+}
+
+.others button.selected svg {
+  color: #ffc90e;
 }
 
 .pen-color {

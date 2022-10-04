@@ -3,6 +3,7 @@ import ('./iconfont.js')
 const myCanvas = {
   ui: {
     canvas: document.querySelector('#canvas'),
+    others: document.querySelector('.others').children,
     colors: document.querySelector('.pen-color').children
   },
   ctx: undefined,
@@ -108,11 +109,29 @@ const myCanvas = {
   },
 
   setPen: () => {
+    const others= Array.from(myCanvas.ui.others)
+    others.map(i => {
+      if (i.classList.contains('selected')) {
+        i.classList.remove('selected')
+      }
+      if (i.classList.contains('pen')) {
+        i.classList.add('selected')
+      }
+    })
     myCanvas.setPenColor()
     myCanvas.setPenSize()
   },
 
   setEraser: () => {
+    const others= Array.from(myCanvas.ui.others)
+    others.map(i => {
+      if (i.classList.contains('selected')) {
+        i.classList.remove('selected')
+      }
+      if (i.classList.contains('eraser')) {
+        i.classList.add('selected')
+      }
+    })
     myCanvas.setPenColor('white')
     myCanvas.setPenSize()
   },
