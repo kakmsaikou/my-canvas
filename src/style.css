@@ -46,30 +46,35 @@ button {
   position: absolute;
   top: 72px;
   left: 16px;
+  overflow: visible;
 }
 
 .pen-color button {
+  position: absolute;
   border: none;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  margin-bottom: 16px;
 }
 
 .red-pen {
   background-color: #ed1c24;
+  top: 0;
 }
 
 .blue-pen {
   background-color: #00a2e8;
+  top: 46px;
 }
 
 .green-pen {
   background-color: #22b14c;
+  top: 92px;
 }
 
 .black-pen {
   background-color: black;
+  top: 138px;
 }
 
 .pen-size {
@@ -80,7 +85,7 @@ button {
   right: 16px;
 }
 
-.pen-size button{
+.pen-size button {
   background-color: black;
   border: none;
   width: 30px;
@@ -88,7 +93,6 @@ button {
 }
 
 .big-pen {
-  border: 1px solid red;
   height: 20px;
 }
 
