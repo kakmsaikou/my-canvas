@@ -56,10 +56,6 @@
   display: block;
 }
 
-/*button {*/
-/*  cursor: pointer;*/
-/*}*/
-
 .icon {
   width: 1em;
   height: 1em;
@@ -107,6 +103,7 @@
   height: 32px;
   border-radius: 50%;
   transition: transform 100ms;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.25);
 }
 
 .pen-color button.selected {
