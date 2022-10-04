@@ -12,13 +12,20 @@ const myCanvas = {
     '.big-pen': ['setPenSize', 15],
     '.normal-pen': ['setPenSize', 10],
     '.small-pen': ['setPenSize', 5],
-    '.red-pen': ['setPenColor', '#ed1c24'],
-    '.blue-pen': ['setPenColor', '#00a2e8'],
-    '.green-pen': ['setPenColor', '#22b14c'],
+    '.red-pen': ['setPenColor', 'red'],
+    '.blue-pen': ['setPenColor', 'blue'],
+    '.green-pen': ['setPenColor', 'green'],
     '.black-pen': ['setPenColor', 'black'],
     '.pen': ['setPen', undefined],
     '.eraser': ['setEraser', undefined],
     '.clean': ['cleanCanvas', undefined]
+  },
+  styleList: {
+    'black': '#000',
+    'red': '#ed1c24',
+    'blue': '#00a2e8',
+    'green': '#22b14c',
+    'white': '#fff'
   },
 
   init: () => {
@@ -80,7 +87,7 @@ const myCanvas = {
   },
 
   setPenColor: (color = 'black') => {
-    myCanvas.ctx.strokeStyle = color
+    myCanvas.ctx.strokeStyle = myCanvas.styleList[color]
   },
 
   setPenSize: (size = 10) => {
