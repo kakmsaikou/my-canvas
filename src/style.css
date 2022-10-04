@@ -52,9 +52,13 @@ button {
 .pen-color button {
   position: absolute;
   border: none;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+}
+
+.pen-color button.selected{
+  transform: scale(1.2, 1.2);
 }
 
 .red-pen {
@@ -64,17 +68,17 @@ button {
 
 .blue-pen {
   background-color: #00a2e8;
-  top: 46px;
+  top: 48px;
 }
 
 .green-pen {
   background-color: #22b14c;
-  top: 92px;
+  top: 96px;
 }
 
 .black-pen {
   background-color: black;
-  top: 138px;
+  top: 144px;
 }
 
 .pen-size {
